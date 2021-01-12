@@ -132,6 +132,4 @@ async def clear_messages(ctx, amount=2):
 
 
 
-
-
 client.run(os.environ['token'])
