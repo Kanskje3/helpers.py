@@ -56,9 +56,9 @@ async def on_message_delete(message):
 async def on_member_join(member):
     channel = client.get_channel(id=782802548212891658) #verifique aqui
 
-    await channel.send(f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Por favor escreva seu nick no jogo '
-          f'utilizando esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Não se esqueça de ler as regras em <#515924836724506634>'
-          f'e divirta-se! Para mais comandos digite ?help no canal <#789349633121845249>')
+    await channel.send(f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Por favor escreva seu nick no '
+    f'jogo utilizando esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Não se esqueça de ler as regras em '
+    f'<#515924836724506634> e divirta-se! Para mais comandos digite ?help no canal <#789349633121845249>')
 
 
 @client.command(aliases=['sobre'])
