@@ -34,9 +34,9 @@ async def on_message(msg):
         await msg.add_reaction("<:mds:703304861575544962>")
         await msg.add_reaction("<:pikoh:606574166497558538>")
     if "Formulário" in msg.content.lower():
-         await msg.add_reaction("<:desconfiadx:610229151840075786>")
+        await msg.add_reaction("<:desconfiadx:610229151840075786>")
     if "Formulario" in msg.content.lower():
-         await msg.add_reaction("<:desconfiadx:610229151840075786>")
+        await msg.add_reaction("<:desconfiadx:610229151840075786>")
     if "austin" in msg.content.lower():
         await msg.add_reaction("🇳")
         await msg.add_reaction("🇴")
