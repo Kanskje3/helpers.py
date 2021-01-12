@@ -113,7 +113,6 @@ async def help(ctx):
     em.add_field(name="Introdução", value="sobre")
     em.add_field(name="Helpers", value="recrutamento, evento")
     em.add_field(name="Staff", value="staff, moderação, sentinela, mapcrew")
-    em.add_field(name="Utilidaddes", value="clear")
 
     await ctx.send(embed=em)
 
