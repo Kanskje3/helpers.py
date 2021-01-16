@@ -24,11 +24,8 @@ async def on_message(msg):
         return
     for word in filtered_words:
         if word in msg.content:
-            if msg == "computador":
-                return
-            else:
-                await msg.delete()
-                break  ## stops it constantly spamming / continues the loop
+            await msg.delete()
+            break  ## stops it constantly spamming / continues the loop
 
     if "noob" in msg.content.lower():
         await msg.add_reaction("<:mds:703304861575544962>")
@@ -45,10 +42,7 @@ async def on_message(msg):
         await msg.add_reaction("🇴")
         await msg.add_reaction("🇧")
     if "pera" in msg.content.lower():
-        if msg.content == "cooperar" or "cooperação":
-            return
-        else:
-            await msg.add_reaction("🍐")
+        await msg.add_reaction("🍐")
 
     await client.process_commands(msg)
 
