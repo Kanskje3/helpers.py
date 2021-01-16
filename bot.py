@@ -28,7 +28,7 @@ async def on_message(msg):
                 return
             else:
                 await msg.delete()
-                break ## stops it constantly spamming / continues the loop
+                break  ## stops it constantly spamming / continues the loop
 
     if "noob" in msg.content.lower():
         await msg.add_reaction("<:mds:703304861575544962>")
@@ -50,7 +50,6 @@ async def on_message(msg):
         else:
             await msg.add_reaction("🍐")
 
-
     await client.process_commands(msg)
 
 
@@ -58,16 +57,17 @@ async def on_message(msg):
 async def on_message_delete(message):
     if message.author.bot:
         return
-    channel = client.get_channel(id=797203131019689994) #id do canal em que as mensagens serão arquivadas
+    channel = client.get_channel(id=797203131019689994)  # id do canal em que as mensagens serão arquivadas
     await channel.send(f'{message.author} deleted this message:\n{message.content}')
+
 
 @client.event
 async def on_member_join(member):
-    channel = client.get_channel(id=782802548212891658) #verifique aqui
+    channel = client.get_channel(id=782802548212891658)  # verifique aqui
 
     await channel.send(f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Por favor escreva seu nick no '
-    f'jogo utilizando esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Não se esqueça de ler as regras em '
-    f'<#515924836724506634> e divirta-se! Para mais comandos digite ?help no canal <#789349633121845249>')
+                       f'jogo utilizando esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Não se esqueça de ler as regras em '
+                       f'<#515924836724506634> e divirta-se! Para mais comandos digite ?help no canal <#789349633121845249>')
 
 
 @client.command(aliases=['sobre'])
@@ -114,13 +114,16 @@ async def Evento(ctx):
                    'mais movimento, pode tentar o tópico em inglês: https://atelier801.com/topic?f=6&t=888989&p=1 ('
                    'não temos ligação com esse tópico).')
 
-@client.commandd(aliases=['pelo', 'pelos', 'Pelos'])
+
+@client.command(aliases=['pelo', 'pelos', 'Pelos'])
 async def Pelo(ctx):
     await ctx.send('https://atelier801.com/topic?f=6&t=893313&p=1#m1')
-    
+
+
 @client.command(aliases=['café', 'Café', 'cafe'])
 async def Cafe(ctx):
     await ctx.send('Para usar o café é necessário ter 1000 queijos coletados e 30 horas online.')
+
 
 @client.group(invoke_without_command=True)
 async def help(ctx):
@@ -133,19 +136,18 @@ async def help(ctx):
 
     await ctx.send(embed=em)
 
-#@help.command()
-#async def sobre(ctx):
-    #em = discord.Embed(title='Sobre', description='Uma pequena descrição sobre o bot.')
-    #await ctx.send(embed=em)
+
+# @help.command()
+# async def sobre(ctx):
+# em = discord.Embed(title='Sobre', description='Uma pequena descrição sobre o bot.')
+# await ctx.send(embed=em)
 
 
-
-@client.command(aliases=['Clear','clear', 'purge', 'Purge'])
+@client.command(aliases=['Clear', 'clear', 'purge', 'Purge'])
 @commands.has_permissions(manage_messages=True)
 async def clear_messages(ctx, amount=2):
     await ctx.channel.purge(limit=amount)
     await ctx.send(f'Foram apagadas {amount} mensagens.')
-
 
 
 client.run(os.environ['token'])
