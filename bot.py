@@ -24,8 +24,11 @@ async def on_message(msg):
         return
     for word in filtered_words:
         if word in msg.content:
-            await msg.delete()
-            break ## stops it constantly spamming / continues the loop
+            if msg == "computador":
+                return
+            else:
+                await msg.delete()
+                break ## stops it constantly spamming / continues the loop
 
     if "noob" in msg.content.lower():
         await msg.add_reaction("<:mds:703304861575544962>")
@@ -41,6 +44,12 @@ async def on_message(msg):
         await msg.add_reaction("🇳")
         await msg.add_reaction("🇴")
         await msg.add_reaction("🇧")
+    if "pera" in msg.content.lower():
+        if msg.content == "cooperar" or "cooperação":
+            return
+        else:
+            await msg.add_reaction("🍐")
+
 
     await client.process_commands(msg)
 
@@ -105,6 +114,13 @@ async def Evento(ctx):
                    'mais movimento, pode tentar o tópico em inglês: https://atelier801.com/topic?f=6&t=888989&p=1 ('
                    'não temos ligação com esse tópico).')
 
+@client.commandd(aliases=['pelo', 'pelos', 'Pelos'])
+async def Pelo(ctx):
+    await ctx.send('https://atelier801.com/topic?f=6&t=893313&p=1#m1')
+    
+@client.command(aliases=['café', 'Café', 'cafe'])
+async def Cafe(ctx):
+    await ctx.send('Para usar o café é necessário ter 1000 queijos coletados e 30 horas online.')
 
 @client.group(invoke_without_command=True)
 async def help(ctx):
@@ -113,13 +129,14 @@ async def help(ctx):
     em.add_field(name="Introdução", value="sobre")
     em.add_field(name="Helpers", value="recrutamento, evento")
     em.add_field(name="Staff", value="staff, moderação, sentinela, mapcrew")
+    em.add_field(name="Utilidade", value="pelo, cafe")
 
     await ctx.send(embed=em)
 
-@help.command()
-async def sobre(ctx):
-    em = discord.Embed(title='Sobre', description='Uma pequena descrição sobre o bot.')
-    await ctx.send(embed=em)
+#@help.command()
+#async def sobre(ctx):
+    #em = discord.Embed(title='Sobre', description='Uma pequena descrição sobre o bot.')
+    #await ctx.send(embed=em)
 
 
 
