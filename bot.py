@@ -133,10 +133,30 @@ async def help(ctx):
     await ctx.send(embed=em)
 
 
-# @help.command()
-# async def sobre(ctx):
-# em = discord.Embed(title='Sobre', description='Uma pequena descrição sobre o bot.')
-# await ctx.send(embed=em)
+@client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
+async def votação(ctx, question, *options: str):
+    if len(options) <= 1:
+        await ctx.send('Você precisa de mais opções para fazer uma votação.')
+        return
+    if len(options) > 26:
+        await ctx.send('Você não poed fazer uma votação com mais de 26 itens.')
+        return
+
+    if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
+        reactions = ['✅', '❌']
+    else:
+        reactions = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
+                     '🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
+
+    description = []
+    for x, option in enumerate(options):
+        description += '\n {} {}'.format(reactions[x], option)
+    embed = discord.Embed(title=question, description=''.join(description))
+    react_message = await ctx.send(embed=embed)
+    for reaction in reactions[:len(options)]:
+        await react_message.edit(react_message, reaction)
+    embed.set_footer(text='Poll ID: {}'.format(react_message.id))
+    await react_message.edit(embed=embed)
 
 
 def convert(time):
