@@ -203,7 +203,7 @@ async def sorteio(ctx):
     my_msg = await channel.send(embed=embed)
 
     await my_msg.add_reaction("<:derp:703304861512499271>")
-    await ctx.send(f"{role.mention}")
+    await channel.send(f"{role.mention}")
     await asyncio.sleep(time)
 
     new_message = await channel.fetch_message(my_msg.id)
@@ -211,7 +211,7 @@ async def sorteio(ctx):
     users = await new_message.reactions[0].users().flatten()
     users.pop(users.index(client.user))
 
-    winner = random.choice(answers[3](users))
+    winner = random.choice(answers[3].users)
 
     await channel.send(f"Parabéns {winner.mention}! Você ganhou {prize}!")
 
