@@ -194,6 +194,11 @@ async def sorteio(ctx):
 
     prize = answers[2]
 
+    ganhadores = int(answers[3])
+    if ganhadores == -1:
+        await ctx.send("Numero de ganhadores inválido.")
+        return
+    
     await ctx.send(f"O sorteio será no canal {channel.mention} com duração de {answers[1]} e terá {answers[3]} ganhador(es).")
 
     embed = discord.Embed(title="Sorteio!", description=f"{prize}")
