@@ -156,12 +156,14 @@ def convert(time):
 @client.command()
 @commands.has_role("Helpers")
 async def sorteio(ctx):
+    global winner
     await ctx.send("Inicio do sorteio. Responda as seguintes perguntas em até 30 segundos.")
     questions = ['Em qual canal o sorteio deve ser realizado?', 'Qual a duração do sorteio? (s|m|h|d)',
                  'O que vai ser sorteado?', 'Quantas pessoas serão sorteadas?']
 
     answers = []
     role = discord.utils.get(ctx.guild.roles, name="Sorteios")
+
     def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -198,7 +200,7 @@ async def sorteio(ctx):
     if ganhadores == -1:
         await ctx.send("Numero de ganhadores inválido.")
         return
-    
+
     await ctx.send(f"O sorteio será no canal {channel.mention} com duração de {answers[1]} e terá {answers[3]} ganhador(es).")
 
     embed = discord.Embed(title="Sorteio!", description=f"{prize}")
@@ -216,7 +218,8 @@ async def sorteio(ctx):
     users = await new_message.reactions[0].users().flatten()
     users.pop(users.index(client.user))
 
-    winner = random.choice(answers[3].users)
+    for i in range(answers[3]):
+        winner = random.choice(users)
 
     await channel.send(f"Parabéns {winner.mention}! Você ganhou {prize}!")
 
@@ -236,6 +239,51 @@ async def refazer(ctx, channel: discord.TextChannel, id_: int):
     winner = random.choice(users)
 
     await channel.send(f"Parabéns {winner.mention}, você é o novo vencedor!")
+
+
+'''time_regex = re.compile(r"(?:(\d{1,5})(h|s|m|d))+?")
+time_dict = {"h": 3600, "s": 1, "m": 60, "d": 86400}
+
+
+def convert(argument):
+    args = argument.lower()
+    matches = re.findall(time_regex, args)
+    time = 0
+    for key, value in matches:
+        try:
+            time += time_dict[value] * float(key)
+        except KeyError:
+            raise commands.BadArgument(
+                f"{value} is an invalid time key! h|m|s|d are valid arguments"
+            )
+        except ValueError:
+            raise commands.BadArgument(f"{key} is not a number!")
+    return round(time)
+
+
+@client.command()
+@commands.has_role('Helpers')
+async def start(ctx, timing, winners: int, *, prize):
+    await ctx.send('Começando o sorteio!', delete_after=3)
+    gwembed = discord.Embed(
+        title="🎉 __**Sorteio**__ 🎉",
+        description=f'O que está sendo sorteado: {prize}',
+        color=0xb4e0fc
+    )
+    time = convert(timing)
+    gwembed.set_footer(text=f"Esse sorteio acaba {time} segundos após essa mensagem.")
+    gwembed = await ctx.send(embed=gwembed)
+    await gwembed.add_reaction("<:derp:703304861512499271>")
+    await asyncio.sleep(time)
+    message = await ctx.fetch_message(gwembed.id)
+    users = await message.reactions[0].users().flatten()
+    users.pop(users.index(ctx.guild.me))
+    if len(users) == 0:
+        await ctx.send("Não houve ganhadores.")
+        return
+    for i in range(winners):
+        winner = random.choice(users)
+        await ctx.send(f"**Parabéns {winner}!**")'''
 
 
 @client.command(aliases=['Clear', 'clear', 'purge', 'Purge'])
