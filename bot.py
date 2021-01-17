@@ -158,7 +158,7 @@ def convert(time):
 async def sorteio(ctx):
     await ctx.send("Inicio do sorteio. Responda as seguintes perguntas em até 30 segundos.")
     questions = ['Em qual canal o sorteio deve ser realizado?', 'Qual a duração do sorteio? (s|m|h|d)',
-                 'O que vai ser sorteado?']
+                 'O que vai ser sorteado?', 'Quantas pessoas serão sorteadas?']
 
     answers = []
     role = discord.utils.get(ctx.guild.roles, name="Sorteios")
@@ -194,7 +194,7 @@ async def sorteio(ctx):
 
     prize = answers[2]
 
-    await ctx.send(f"O sorteio será no canal {channel.mention} com duração de {answers[1]}")
+    await ctx.send(f"O sorteio será no canal {channel.mention} com duração de {answers[1]} e terá {answers[3]} ganhador(es).")
 
     embed = discord.Embed(title="Sorteio!", description=f"{prize}")
     embed.add_field(name="Feito por:", value=ctx.author.mention)
@@ -211,7 +211,7 @@ async def sorteio(ctx):
     users = await new_message.reactions[0].users().flatten()
     users.pop(users.index(client.user))
 
-    winner = random.choice(users)
+    winner = random.choice(answers[3](users))
 
     await channel.send(f"Parabéns {winner.mention}! Você ganhou {prize}!")
 
