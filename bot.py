@@ -157,12 +157,11 @@ def convert(time):
 @commands.has_role("Helpers")
 async def sorteio(ctx):
     await ctx.send("Inicio do sorteio. Responda as seguintes perguntas em até 30 segundos.")
-
     questions = ['Em qual canal o sorteio deve ser realizado?', 'Qual a duração do sorteio? (s|m|h|d)',
                  'O que vai ser sorteado?']
 
     answers = []
-
+    role = discord.utils.get(ctx.guild.roles, name="Sorteios")
     def check(m):
         return m.author == ctx.author and m.channel == ctx.channel
 
@@ -204,6 +203,7 @@ async def sorteio(ctx):
     my_msg = await channel.send(embed=embed)
 
     await my_msg.add_reaction("<:derp:703304861512499271>")
+    await ctx.send(f"{role.mention}")
     await asyncio.sleep(time)
 
     new_message = await channel.fetch_message(my_msg.id)
