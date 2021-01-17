@@ -143,7 +143,8 @@ async def votação(ctx, question, *options: str):
         return
 
     if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
-        reactions = ['✅', '❌']
+        ctx.add_reactions(['✅'])
+        ctx.add_reactions(['❌'])
     else:
         reactions = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
                      '🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
