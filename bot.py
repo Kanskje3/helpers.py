@@ -146,18 +146,10 @@ async def votação(ctx, question, *options: str):
         ctx.add_reactions(['✅'])
         ctx.add_reactions(['❌'])
     else:
-        reactions = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
+        for i in range(*options):
+            emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
                      '🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
-
-    description = []
-    for x, option in enumerate(options):
-        description += '\n {} {}'.format(reactions[x], option)
-    embed = discord.Embed(title=question, description=''.join(description))
-    react_message = await ctx.send(embed=embed)
-    for reaction in reactions[:len(options)]:
-        await react_message.edit(react_message, reaction)
-    embed.set_footer(text='Poll ID: {}'.format(react_message.id))
-    await react_message.edit(embed=embed)
+        ctx.add_reactions(emojis)
 
 
 def convert(time):
