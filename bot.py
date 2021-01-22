@@ -199,7 +199,7 @@ async def sorteio(ctx):
     my_msg = await channel.send(embed=embed)
 
     await my_msg.add_reaction("<:derp:703304861512499271>")
-    await channel.send(f"{role.mention}")
+    await channel.send(f"{role.mention} Novo sorteio!")
     await asyncio.sleep(time)
 
     new_message = await channel.fetch_message(my_msg.id)
