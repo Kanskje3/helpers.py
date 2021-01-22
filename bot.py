@@ -226,7 +226,7 @@ async def refazer(ctx, channel: discord.TextChannel, id_: int):
 
     winner = random.choice(users)
 
-    await channel.send(f"Parabéns {winner.mention}, você é o novo vencedor!)
+    await channel.send(f"Parabéns {winner.mention}, você é o novo vencedor!")
 
 
 
