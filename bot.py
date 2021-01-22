@@ -212,6 +212,24 @@ async def sorteio(ctx):
     await channel.send(f"Parabéns {winner.mention}! Você ganhou {prize}!")
 
 
+@client.command()
+@commands.has_role("Helpers")
+async def refazer(ctx, channel: discord.TextChannel, id_: int):
+    try:
+        new_msg = await channel.fetch_message(id_)
+    except:
+        await ctx.send("O id foi enviado de maneira incorreta.")
+        return
+
+    users = await new_msg.reactions[0].users().flatten()
+    users.pop(users.index(client.user))
+
+    winner = random.choice(users)
+
+    await channel.send(f"Parabéns {winner.mention}, você é o novo vencedor!)
+
+
+
 @client.command(aliases=['Clear', 'clear', 'purge', 'Purge'])
 @commands.has_role("Helpers")
 async def clear_messages(ctx, amount=2):
