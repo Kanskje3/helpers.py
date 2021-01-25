@@ -10,7 +10,7 @@ intents = intents.all()
 client = commands.Bot(command_prefix="?", intents=intents)
 client.remove_command("help")
 
-filtered_words = ['puta', 'arrombado', 'buceta', 'pinto', 'caralho', 'idiota', 'escroto', 'porra']
+filtered_words = ['fdp', 'arrombado', 'buceta', 'pinto', 'caralho', 'idiota', 'escroto', 'porra']
 
 
 @client.event
@@ -199,7 +199,7 @@ async def sorteio(ctx):
     my_msg = await channel.send(embed=embed)
 
     await my_msg.add_reaction("<:derp:703304861512499271>")
-    await channel.send(f"{role.mention} Novo sorteio!")
+    await channel.send(f"{role.mention} Novo sorteio! <:meucore:718465701626773594>")
     await asyncio.sleep(time)
 
     new_message = await channel.fetch_message(my_msg.id)
