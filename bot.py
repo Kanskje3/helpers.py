@@ -200,7 +200,7 @@ async def sorteio(ctx):
 
     await my_msg.add_reaction("<:alegre:703304861348790477>")
     await channel.send(f'{role.mention} Novo sorteio! <:meucore:718465701626773594>. Esse sorteio terá a duração de '
-    f'{answers[1]}. Reaja no "<:alegre:703304861348790477>" para participar!')
+    f'{answers[1]} a partir da data desta mensagem. Reaja no "<:alegre:703304861348790477>" para participar!')
     await asyncio.sleep(time)
 
     new_message = await channel.fetch_message(my_msg.id)
