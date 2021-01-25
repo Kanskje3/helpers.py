@@ -135,7 +135,7 @@ async def help(ctx):
 
 def convert(time):
     pos = ['s', 'm', 'h', 'd']
-    time_dict = {'s': 1, 'm': 60, 'h': 3600, 'd': 3600 * 24}
+    time_dict = {'s': 1, 'm': 60, 'h': 3600, 'd': 86400}
     unit = time[-1]
     if unit not in pos:
         return -1
@@ -198,8 +198,9 @@ async def sorteio(ctx):
 
     my_msg = await channel.send(embed=embed)
 
-    await my_msg.add_reaction("<:derp:703304861512499271>")
-    await channel.send(f"{role.mention} Novo sorteio! <:meucore:718465701626773594>")
+    await my_msg.add_reaction("<:alegre:703304861348790477>")
+    await channel.send(f'{role.mention} Novo sorteio! <:meucore:718465701626773594> Esse sorteio terá a duração de'
+    f'{answers[1]}. Reaja no "<:alegre:703304861348790477>" para participar!')
     await asyncio.sleep(time)
 
     new_message = await channel.fetch_message(my_msg.id)
