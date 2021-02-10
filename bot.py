@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands, tasks
 import youtube_dl
 import os
-from random import choice
 
 intents = discord.Intents.default()
 intents.members = True
