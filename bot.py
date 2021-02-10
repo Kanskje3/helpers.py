@@ -9,13 +9,13 @@ intents.members = True
 intents = intents.all()
 client = commands.Bot(command_prefix="?", intents=intents)
 client.remove_command("help")
-status = ['?help para saber mais.']
 
 filtered_words = ['fdp', 'arrombado', 'buceta', 'pinto', 'caralho', 'idiota', 'escroto', 'porra']
 
 
 @client.event
 async def on_ready():
+    await client.change_presence(activity=discord.Game('?help para saber mais.'))
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
