@@ -1,7 +1,8 @@
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import youtube_dl
 import os
+import asyncio
 
 intents = discord.Intents.default()
 intents.members = True
