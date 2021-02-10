@@ -15,7 +15,7 @@ filtered_words = ['fdp', 'arrombado', 'buceta', 'pinto', 'caralho', 'idiota', 'e
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Game('?help para saber mais.'))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
