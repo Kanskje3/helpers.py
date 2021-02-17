@@ -164,6 +164,6 @@ async def on_message(message):
     #for ch in message:
         #if ch.isdigit():
             #message.replace('#', '﹟')
-    await channel.send(f'{message}')
+    await channel.send(f'{message.content}')
 
 client.run(os.environ['token'])
