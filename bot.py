@@ -162,4 +162,10 @@ async def on_command_error(ctx, error):
         raise error
 
 
+@client.command()
+async def test(ctx):
+  message = await ctx.send("hello")
+  await asyncio.sleep(1)
+  await message.edit(content="newcontent")
+
 client.run(os.environ['token'])
