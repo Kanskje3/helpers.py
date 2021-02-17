@@ -1,4 +1,5 @@
 import asyncio
+import time
 import discord
 from discord.ext import commands
 import os
@@ -17,6 +18,8 @@ filtered_words = ['fdp', 'arrombado', 'buceta', 'pinto', 'caralho', 'idiota', 'e
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
+    channel = client.get_channel(id=797141089998864465)
+    await channel.send('Bot online!')
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
@@ -163,10 +166,6 @@ async def on_command_error(ctx, error):
         raise error
 
 
-@client.command()
-async def test(ctx):
-    message = await ctx.send("hello")
-    await asyncio.sleep(1)
-    await message.edit(content="newcontent")
+
 
 client.run(os.environ['token'])
