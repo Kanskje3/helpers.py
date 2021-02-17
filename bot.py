@@ -138,7 +138,7 @@ async def ping(ctx):
 @commands.has_role("Helpers")
 async def clear_messages(ctx, amount=2):
     await ctx.channel.purge(limit=amount)
-    await ctx.send(f'Foram apagadas {amount} mensagens.')
+    await ctx.send(f'{ctx.message.author.mention} apagou {amount} mensagens.')
 
 
 @client.event
