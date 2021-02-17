@@ -130,8 +130,8 @@ async def Staff(ctx):
                    '\n\nSe quiser algo mais expecífico tente os comandos ?moderação, ?sentinela ou ?mapcrew.')
 
 
-@client.command(aliases=['moderação', 'moderacao', 'moderaçao', 'moderacão', 'Moderacao', 'Moderaçao', 'Moderacão'])
-async def Moderação(ctx):
+@client.command(aliases=['moderação', 'moderacao', 'moderaçao', 'moderacão', 'Moderação', 'Moderaçao', 'Moderacão'])
+async def Moderacao(ctx):
     await ctx.send('Informações sobre recrutamento >> https://atelier801.com/topic?f=6&t=855148&p=1#m1 \nFeedback '
                    'para a moderação >> https://atelier801.com/topic?f=5&t=927074&p=1 \nCentral de banimentos >> '
                    'https://atelier801.com/topic?f=5&t=814024&p=1')
@@ -183,10 +183,10 @@ async def ping(ctx):
     await ctx.send(f'Latencia: {round(client.latency * 1000)}ms')
 
 
-@client.command()
+@client.command(name='join', help='This command makes the bot join the voice channel')
 async def join(ctx):
     if not ctx.message.author.voice:
-        await ctx.send("Você não está conectado a um canal de voz.")
+        await ctx.send("You are not connected to a voice channel")
         return
 
     else:
@@ -195,27 +195,27 @@ async def join(ctx):
     await channel.connect()
 
 
-@client.command()
+@client.command(name='queue', help='This command adds a song to the queue')
 async def queue_(ctx, url):
     global queue
 
     queue.append(url)
-    await ctx.send(f'`{url}` adicionado a fila!')
+    await ctx.send(f'`{url}` added to queue!')
 
 
-@client.command()
+@client.command(name='remove', help='This command removes an item from the list')
 async def remove(ctx, number):
     global queue
 
     try:
         del (queue[int(number)])
-        await ctx.send(f'Sua fila agora é `{queue}!`')
+        await ctx.send(f'Your queue is now `{queue}!`')
 
     except:
-        await ctx.send('Sua fila ou está **vazia** ou o index está **sem espaço**')
+        await ctx.send('Your queue is either **empty** or the index is **out of range**')
 
 
-@client.command()
+@client.command(name='play', help='This command plays songs')
 async def play(ctx):
     global queue
 
@@ -226,11 +226,11 @@ async def play(ctx):
         player = await YTDLSource.from_url(queue[0], loop=client.loop)
         voice_channel.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
 
-    await ctx.send('**Tocando agora:** {}'.format(player.title))
+    await ctx.send('**Now playing:** {}'.format(player.title))
     del (queue[0])
 
 
-@client.command()
+@client.command(name='pause', help='This command pauses the song')
 async def pause(ctx):
     server = ctx.message.guild
     voice_channel = server.voice_client
@@ -238,7 +238,7 @@ async def pause(ctx):
     voice_channel.pause()
 
 
-@client.command()
+@client.command(name='resume', help='This command resumes the song!')
 async def resume(ctx):
     server = ctx.message.guild
     voice_channel = server.voice_client
@@ -246,18 +246,18 @@ async def resume(ctx):
     voice_channel.resume()
 
 
-@client.command()
+@client.command(name='view', help='This command shows the queue')
 async def view(ctx):
-    await ctx.send(f'Sua fila agora é `{queue}!`')
+    await ctx.send(f'Your queue is now `{queue}!`')
 
 
-@client.command()
+@client.command(name='leave', help='This command stops makes the bot leave the voice channel')
 async def leave(ctx):
     voice_client = ctx.message.guild.voice_client
     await voice_client.disconnect()
 
 
-@client.command()
+@client.command(name='stop', help='This command stops the song!')
 async def stop(ctx):
     server = ctx.message.guild
     voice_channel = server.voice_client
