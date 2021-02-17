@@ -1,3 +1,4 @@
+import asyncio
 import discord
 from discord.ext import commands
 import os
@@ -164,8 +165,8 @@ async def on_command_error(ctx, error):
 
 @client.command()
 async def test(ctx):
-  message = await ctx.send("hello")
-  await asyncio.sleep(1)
-  await message.edit(content="newcontent")
+    message = await ctx.send("hello")
+    await asyncio.sleep(1)
+    await message.edit(content="newcontent")
 
 client.run(os.environ['token'])
