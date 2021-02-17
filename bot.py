@@ -161,9 +161,9 @@ async def on_command_error(ctx, error):
 async def on_message(message):
     channel = client.get_channel(id=797141089998864465)
     characters = ['﹟', '₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉']
-    #for ch in message:
-        #if ch.isdigit():
-            #message.replace('#', '﹟')
-    await channel.send(f'{message.content}')
+    list = ['list']
+    stroflist = "".join(list)
+    print(stroflist)
+
 
 client.run(os.environ['token'])
