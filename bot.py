@@ -32,8 +32,6 @@ async def on_message(msg, message):
     for word in filtered_words:
         if word in msg.content:
             await msg.delete()
-            channel = client.get_channel(id=797203131019689994)
-            await channel.send(f'{message.author} deleted this message:\n{message.content}')
             break  # stops it constantly spamming / continues the loop
 
 
