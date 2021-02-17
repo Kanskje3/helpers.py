@@ -10,9 +10,6 @@ intents = intents.all()
 client = commands.Bot(command_prefix="?", intents=intents)
 client.remove_command("help")
 
-deleted = 0
-filtered_words = ['fdp', 'arrombado', 'buceta', 'pinto', 'caralho', 'idiota', 'escroto', 'porra']
-
 
 @client.event
 async def on_ready():
@@ -23,16 +20,6 @@ async def on_ready():
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
-
-
-@client.event
-async def on_message(msg, message):
-    if msg.author == client.user:
-        return
-    for word in filtered_words:
-        if word in msg.content:
-            await msg.delete()
-            break  # stops it constantly spamming / continues the loop
 
 
 @client.event
