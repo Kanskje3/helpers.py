@@ -4,20 +4,20 @@ import discord
 from discord.ext import commands
 import os
 
-
 intents = discord.Intents.default()
 intents.members = True
 intents = intents.all()
 client = commands.Bot(command_prefix="?", intents=intents)
 client.remove_command("help")
 
-
+deleted = 0
 filtered_words = ['fdp', 'arrombado', 'buceta', 'pinto', 'caralho', 'idiota', 'escroto', 'porra']
 
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
+    await client.change_presence(
+        activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
     channel = client.get_channel(id=797141089998864465)
     await channel.send('Bot online!')
     print("Bot online!")
@@ -26,14 +26,19 @@ async def on_ready():
 
 
 @client.event
-async def on_message(msg):
+async def on_message(msg, message):
     if msg.author == client.user:
         return
     for word in filtered_words:
         if word in msg.content:
             await msg.delete()
+            channel = client.get_channel(id=797203131019689994)
+            await channel.send(f'{message.author} deleted this message:\n{message.content}')
             break  # stops it constantly spamming / continues the loop
 
+
+@client.event
+async def on_message(msg):
     if "noob" in msg.content.lower():
         await msg.add_reaction("<:mds:703304861575544962>")
         await msg.add_reaction("<:pikoh:606574166497558538>")
@@ -90,7 +95,8 @@ async def Staff(ctx):
                    '\n\nSe quiser algo mais expecífico tente os comandos ?moderação, ?sentinela ou ?mapcrew.')
 
 
-@client.command(aliases=['moderação', 'moderacao', 'moderaçao', 'moderacão', 'Moderação', 'Moderaçao', 'Moderacão', 'mod', 'Mod'])
+@client.command(
+    aliases=['moderação', 'moderacao', 'moderaçao', 'moderacão', 'Moderação', 'Moderaçao', 'Moderacão', 'mod', 'Mod'])
 async def Moderacao(ctx):
     await ctx.send('Informações sobre recrutamento >> https://atelier801.com/topic?f=6&t=855148&p=1#m1 \nFeedback '
                    'para a moderação >> https://atelier801.com/topic?f=5&t=927074&p=1 \nCentral de banimentos >> '
@@ -153,19 +159,18 @@ async def clear_messages(ctx, amount=2):
 @client.event
 async def on_command_error(ctx, error):
     embed = discord.Embed(
-    title='',
-    color=discord.Color.red())
+        title='',
+        color=discord.Color.red())
     if isinstance(error, commands.CommandNotFound):
         pass
     if isinstance(error, commands.MissingPermissions):
         embed.add_field(name=f'Invalid Permissions', value=f'You dont have {error.missing_perms} permissions.')
         await ctx.send(embed=embed)
     else:
-        embed.add_field(name = f':x: Terminal Error', value = f"```{error}```")
-        await ctx.send(embed = embed)
+        embed.add_field(name=f':x: Terminal Error', value=f"```{error}```")
+        await ctx.send(embed=embed)
         raise error
 
 
-
-
+client.loop.create_task(on_message_delete)
 client.run(os.environ['token'])
