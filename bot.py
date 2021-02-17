@@ -157,5 +157,13 @@ async def on_command_error(ctx, error):
         raise error
 
 
-client.loop.create_task(on_message_delete)
+@client.command()
+async def nome(ctx, message):
+    channel = client.get_channel(id=782802548212891658)
+    characters = ['﹟', '₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉']
+    for ch in message:
+        if ch.isdigit():
+            message.replace('#', '﹟')
+            await ctx.send(f'{message.content}')
+
 client.run(os.environ['token'])
