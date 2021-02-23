@@ -156,13 +156,4 @@ async def on_command_error(ctx, error):
         raise error
 
 
-@client.command(aliases=['nome'])
-async def on_message(message):
-    channel = client.get_channel(id=797141089998864465)
-    characters = ['﹟', '₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉']
-    list = ['list']
-    stroflist = "".join(list)
-    print(stroflist)
-
-
 client.run(os.environ['token'])
