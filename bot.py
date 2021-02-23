@@ -169,7 +169,7 @@ async def votação(ctx, question, *options: str):
         ctx.add_reactions(['✅'])
         ctx.add_reactions(['❌'])
     else:
-        for i in range(*options):
+        for i in options:
             emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
                      '🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
             ctx.add_reactions(emojis)
