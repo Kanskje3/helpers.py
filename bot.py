@@ -156,4 +156,25 @@ async def on_command_error(ctx, error):
         raise error
 
 
+@client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
+async def votação(ctx, question, *options: str):
+    if len(options) <= 1:
+        await ctx.send('Você precisa de mais opções para fazer uma votação.')
+        return
+    if len(options) > 26:
+        await ctx.send('Você não poed fazer uma votação com mais de 26 itens.')
+        return
+
+    if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
+        ctx.add_reactions(['✅'])
+        ctx.add_reactions(['❌'])
+    else:
+        for i in range(*options):
+            emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
+                     '🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
+            ctx.add_reactions(emojis)
+
+
+
+
 client.run(os.environ['token'])
