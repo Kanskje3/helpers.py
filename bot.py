@@ -118,14 +118,7 @@ async def Cafe(ctx):
 
 @client.group(invoke_without_command=True)
 async def help(ctx):
-    em = discord.Embed(title="Help", description="lista com todos os comandos.")
-
-    em.add_field(name="Introdução", value="sobre")
-    em.add_field(name="Helpers", value="recrutamento, evento")
-    em.add_field(name="Staff", value="staff, moderação, sentinela, mapcrew")
-    em.add_field(name="Utilidade", value="pelo, cafe")
-
-    await ctx.send(embed=em)
+    await ctx.send("Teste")
 
 
 @client.command()
