@@ -119,15 +119,15 @@ async def Cafe(ctx):
 @client.group(invoke_without_command=True)
 async def help(ctx):
     await ctx.send(f"Os comandos deste bot são: \n\n"
-                   f"▫️ **?Sobre** --> Uma pequena introdução sobre o bot.\n"
-                   f"▫️ **?Recrutamento** --> Link para o recrutamento dos Helpers BR.\n"
-                   f"▫️ **?Staff** --> Links úteis sobre a staff em geral.\n"
-                   f"▫️ **?Moderação** --> Links úteis sobre a moderação.\n"
-                   f"▫️ **?Sentinela** --> Links úteis sobre os sentinelas.\n"
-                   f"▫️ **?Mapcrew** --> Links úteis sobre os mapcrews.\n"
-                   f"▫️ **?Evento** --> Links sobre o evento atual no jogo.\n"
-                   f"▫️ **?Pelo** --> Link para ver o cóigo das cores dos pelos.\n"
-                   f"▫️ **?Café** --> Requisitos para poder falar no café.")
+                   f"🔸 **?Sobre** --> Uma pequena introdução sobre o bot.\n"
+                   f"🔸 **?Recrutamento** --> Link para o recrutamento dos Helpers BR.\n"
+                   f"🔸 **?Staff** --> Links úteis sobre a staff em geral.\n"
+                   f"🔸 **?Moderação** --> Links úteis sobre a moderação.\n"
+                   f"🔸 **?Sentinela** --> Links úteis sobre os sentinelas.\n"
+                   f"🔸 **?Mapcrew** --> Links úteis sobre os mapcrews.\n"
+                   f"🔸 **?Evento** --> Links sobre o evento atual no jogo.\n"
+                   f"🔸 **?Pelo** --> Link para ver o cóigo das cores dos pelos.\n"
+                   f"🔸 **?Café** --> Requisitos para poder falar no café.")
 
 
 @client.command()
