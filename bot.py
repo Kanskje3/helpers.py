@@ -217,7 +217,7 @@ async def say(ctx, *, message):
 
 @client.command()
 async def nome(ctx, msg):
-    new_message = msg.replace(1, a)
+    new_message = msg.replace(1, "a")
     await ctx.send(msg + f" {new_message}")
 
 
