@@ -155,7 +155,7 @@ async def on_command_error(ctx, error):
         embed.add_field(name=f'Invalid Permissions', value=f'You dont have {error.missing_perms} permissions.')
         await ctx.send(embed=embed)
     else:
-        embed.add_field(name=f':x: Terminal Error', value=f"```{error}```{ctx.author.menion}")
+        embed.add_field(name=f':x: Terminal Error', value=f"```{error}```{ctx.author.mention}")
         await ctx.send(embed=embed)
         raise error
 
