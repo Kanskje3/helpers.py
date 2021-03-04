@@ -22,7 +22,7 @@ async def on_ready():
 
 
 @client.event
-async def on_message(msg, ctx):
+async def on_message(msg):
     if "noob" in msg.content.lower():
         await msg.add_reaction("<:mds:703304861575544962>")
         await msg.add_reaction("<:pikoh:606574166497558538>")
@@ -40,7 +40,6 @@ async def on_message(msg, ctx):
             await msg.add_reaction("🇳")
             await msg.add_reaction("🇴")
             await msg.add_reaction("🇧")
-        await ctx.send("Austin? O maior noob que conheço.")
     if "pera" in msg.content.lower():
         await msg.add_reaction("🍐")
     if "kaldt" in msg.content.lower():
