@@ -10,11 +10,12 @@ client.remove_command("help")
 
 
 @client.event
-async def on_ready():
+async def on_ready(member:discord.Member):
     await client.change_presence(
         activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
     channel = client.get_channel(id=797141089998864465)
-    await channel.send(f'Bot online! {283650918749044736}')
+    user = '@283650918749044736'
+    await channel.send(f'Bot online! {user}')
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
