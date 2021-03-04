@@ -162,7 +162,7 @@ async def on_command_error(ctx, error):
 
 @client.command(aliasses=['Mes', 'mês', 'Mês'])
 async def mes(msg):
-    await msg.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
+    my_message = await msg.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
                    "🇦 Amanda\n"
                    "🇧 Austinbacky\n"
                    "🇨 Backyardigans\n"
@@ -178,21 +178,21 @@ async def mes(msg):
                    "🇲 Vlump\n"
                    "🇳 Xlivrox\n"
                    "🇴 Yukari")
-    msg.add_reaction("🇦")
-    msg.add_reaction("🇧")
-    msg.add_reaction("🇨")
-    msg.add_reaction("🇩")
-    msg.add_reaction("🇪")
-    msg.add_reaction("🇫")
-    msg.add_reaction("🇬")
-    msg.add_reaction("🇭")
-    msg.add_reaction("🇮")
-    msg.add_reaction("🇯")
-    msg.add_reaction("🇰")
-    msg.add_reaction("🇱")
-    msg.add_reaction("🇲")
-    msg.add_reaction("🇳")
-    msg.add_reaction("🇴")
+    await my_message.add_reaction("🇦")
+    await my_message.add_reaction("🇧")
+    await my_message.add_reaction("🇨")
+    await my_message.add_reaction("🇩")
+    await my_message.add_reaction("🇪")
+    await my_message.add_reaction("🇫")
+    await my_message.add_reaction("🇬")
+    await my_message.add_reaction("🇭")
+    await my_message.add_reaction("🇮")
+    await my_message.add_reaction("🇯")
+    await my_message.add_reaction("🇰")
+    await my_message.add_reaction("🇱")
+    await my_message.add_reaction("🇲")
+    await my_message.add_reaction("🇳")
+    await my_message.add_reaction("🇴")
 
 
 @client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
@@ -205,13 +205,13 @@ async def votação(ctx, question, *options: str):
         return
 
     if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
-        ctx.add_reactions(['✅'])
-        ctx.add_reactions(['❌'])
+        ctx.add_reaction(['✅'])
+        ctx.add_reaction(['❌'])
     else:
         for i in options:
             emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
                      '🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
-            ctx.add_reactions(emojis)
+            ctx.add_reaction(emojis)
 
 
 client.run(os.environ['token'])
