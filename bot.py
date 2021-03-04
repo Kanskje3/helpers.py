@@ -142,7 +142,9 @@ async def help(ctx):
                    f"🔸 **?Mapcrew** --> Links úteis sobre os mapcrews.\n"
                    f"🔸 **?Evento** --> Links sobre o evento atual no jogo.\n"
                    f"🔸 **?Pelo** --> Link para ver o cóigo das cores dos pelos.\n"
-                   f"🔸 **?Café** --> Requisitos para poder falar no café.")
+                   f"🔸 **?Café** --> Requisitos para poder falar no café.\n"
+                   f"🔸 **?Say** --> Faz o bot falar qualquer coisa.\n"
+                   f"🔸 **?Ping** --> Mostra o ping do bot.")
 
 
 @client.command()
@@ -213,12 +215,6 @@ async def mes(msg):
 async def say(ctx, *, message):
     await ctx.message.delete()
     await ctx.send(f"{message}")
-
-
-@client.command()
-async def nome(ctx, msg):
-    new_message = msg.replace(1, "a")
-    await ctx.send(msg + f" {new_message}")
 
 
 @client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
