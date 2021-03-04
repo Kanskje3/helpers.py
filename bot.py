@@ -161,8 +161,8 @@ async def on_command_error(ctx, error):
 
 
 @client.command(aliasses=['Mes', 'mês', 'Mês'])
-async def mes(ctx, msg):
-    await ctx.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
+async def mes(msg):
+    await msg.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
                    "🇦 Amanda\n"
                    "🇧 Austinbacky\n"
                    "🇨 Backyardigans\n"
