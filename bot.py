@@ -145,7 +145,7 @@ async def clear_messages(ctx, amount=2):
 
 
 @client.event
-async def on_command_error(ctx, error,):
+async def on_command_error(ctx, error):
     embed = discord.Embed(
         title='',
         color=discord.Color.red())
