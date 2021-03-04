@@ -65,7 +65,7 @@ async def on_member_join(member):
 @client.command(aliases=['sobre'])
 async def Sobre(ctx):
     await ctx.send('Olá! Eu sou um bot experimental e estou aqui para te ajudar! Fui programado pelo Kanskje e espero '
-                   'fazer um bom trabalho!')
+                   'fazer um bom trabalho! Se tiver sugestões pode pingar o meu criador ou mandar uma mensagem privada!')
 
 
 @client.command(aliases=['recrutamento'])
@@ -89,7 +89,7 @@ async def Moderacao(ctx):
                    'https://atelier801.com/topic?f=5&t=814024&p=1')
 
 
-@client.command(aliases=['sentinela'])
+@client.command(aliases=['sentinela', 'Sentinelas', 'sentinelas'])
 async def Sentinela(ctx):
     await ctx.send('Informações sobre recrutamento >> https://atelier801.com/topic?f=6&t=891854&p=1#m1 \nFeedback '
                    'para os sentinelas >> https://atelier801.com/topic?f=5&t=927060&p=1#m1 ')
@@ -104,7 +104,7 @@ async def Mapcrew(ctx):
 async def Evento(ctx):
     await ctx.send('Para saber mais informações sobre o evento atual no jogo, utilize esse link: '
                    'https://atelier801.com/topic?f=6&t=879878&p=1 \nCaso você queira um tópico com mais discussão e '
-                   'mais movimento, pode tentar o tópico em inglês: https://atelier801.com/topic?f=6&t=888989&p=1 ('
+                   'mais movimento, pode tentar o tópico em inglês: https://atelier801.com/topic?f=6&t=894075&p=1 ('
                    'não temos ligação com esse tópico).')
 
 
