@@ -43,7 +43,7 @@ async def on_message(msg):
     if "pera" in msg.content.lower():
         await msg.add_reaction("🍐")
     if "kaldt" in msg.content.lower():
-        await msg.add.reaction("👀")
+        await msg.add_reaction("👀")
 
     await client.process_commands(msg)
 
