@@ -1,4 +1,3 @@
-import asyncio
 import discord
 from discord.ext import commands
 import os
@@ -158,8 +157,8 @@ async def on_command_error(ctx, error):
         raise error
 
 
-@client.command(aliasses=['mes', 'mês', 'Mes'])
-async def Mês(ctx):
+@client.command(aliasses=['mes', 'mês', 'Mês'])
+async def Mes(ctx):
     await ctx.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
                    "🇦 Amanda\n"
                    "🇧 Austinbacky\n"
