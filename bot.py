@@ -158,6 +158,41 @@ async def on_command_error(ctx, error):
         raise error
 
 
+@client.command(aliasses=['mes', 'mês', 'Mes'])
+async def Mês(ctx):
+    await ctx.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
+                   "🇦 Amanda\n"
+                   "🇧 Austinbacky\n"
+                   "🇨 Backyardigans\n"
+                   "🇩 Henry\n"
+                   "🇪 Jean\n"
+                   "🇫 Kanskje\n"
+                   "🇬 Kigglybuff\n"
+                   "🇭 Mouz\n"
+                   "🇮 Provincias\n"
+                   "🇯 Santoex\n"
+                   "🇰 Sorreltail\n"
+                   "🇱 Tiradez\n"
+                   "🇲 Vlump\n"
+                   "🇳 Xlivrox\n"
+                   "🇴 Yukari")
+    ctx.add_reactions("🇦")
+    ctx.add_reactions("🇧")
+    ctx.add_reactions("🇨")
+    ctx.add_reactions("🇩")
+    ctx.add_reactions("🇪")
+    ctx.add_reactions("🇫")
+    ctx.add_reactions("🇬")
+    ctx.add_reactions("🇭")
+    ctx.add_reactions("🇮")
+    ctx.add_reactions("🇯")
+    ctx.add_reactions("🇰")
+    ctx.add_reactions("🇱")
+    ctx.add_reactions("🇲")
+    ctx.add_reactions("🇳")
+    ctx.add_reactions("🇴")
+
+
 @client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
 async def votação(ctx, question, *options: str):
     if len(options) <= 1:
