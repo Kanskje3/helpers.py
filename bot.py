@@ -14,7 +14,7 @@ async def on_ready():
     await client.change_presence(
         activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
     channel = client.get_channel(id=797141089998864465)
-    await channel.send('Bot online!')
+    await channel.send(f'Bot online! {283650918749044736}')
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
@@ -41,6 +41,8 @@ async def on_message(msg):
             await msg.add_reaction("🇧")
     if "pera" in msg.content.lower():
         await msg.add_reaction("🍐")
+    if "kaldt" in msg.content.lower():
+        await msg.add.reaction("👀")
 
     await client.process_commands(msg)
 
