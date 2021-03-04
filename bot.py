@@ -40,6 +40,7 @@ async def on_message(msg):
             await msg.add_reaction("🇳")
             await msg.add_reaction("🇴")
             await msg.add_reaction("🇧")
+        msg.channel.send("Austin? O maior noob que conheço.")
     if "pera" in msg.content.lower():
         await msg.add_reaction("🍐")
     if "kaldt" in msg.content.lower():
