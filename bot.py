@@ -145,14 +145,14 @@ async def clear_messages(ctx, amount=2):
 
 
 @client.event
-async def on_command_error(ctx, error):
+async def on_command_error(ctx, error, msg):
     embed = discord.Embed(
         title='',
         color=discord.Color.red())
     if isinstance(error, commands.CommandNotFound):
         pass
     if isinstance(error, commands.MissingPermissions):
-        embed.add_field(name=f'Invalid Permissions', value=f'You dont have {error.missing_perms} permissions.')
+        embed.add_field(name=f'Invalid Permissions {msg.author.menion}', value=f'You dont have {error.missing_perms} permissions.')
         await ctx.send(embed=embed)
     else:
         embed.add_field(name=f':x: Terminal Error', value=f"```{error}```")
