@@ -42,9 +42,9 @@ async def on_message(msg):
 
 
 @client.event
-async def on_message(message):
-    if "austin" in message.content.lower():
-        message.channel.send("Austin? O maior noob que ja vi.")
+async def on_message(msg):
+    if "austin" in msg.content.lower():
+        msg.channel.send("Austin? O maior noob que ja vi.")
 
 
 @client.event
