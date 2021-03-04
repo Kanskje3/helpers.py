@@ -55,7 +55,8 @@ async def on_message(msg):
             return
         else:
             await msg.channel.send("Austin? O maior noob que ja vi")
-
+            
+    await client.process_commands(msg)
 
 @client.event
 async def on_message_delete(message):
