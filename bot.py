@@ -161,6 +161,7 @@ async def on_command_error(ctx, error):
 
 
 @client.command(aliasses=['Mes', 'mês', 'Mês'])
+@commands.has_role("Helpers")
 async def mes(msg):
     my_message = await msg.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
                    "🇦 Amanda\n"
