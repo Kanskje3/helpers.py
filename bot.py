@@ -33,11 +33,12 @@ async def on_message(msg):
     if "formulario" in msg.content.lower():
         await msg.add_reaction("<:desconfiadx:610229151840075786>")
     if "austin" in msg.content.lower():
-        await msg.add_reaction("🇳")
-        await msg.add_reaction("🇴")
-        await msg.add_reaction("🇧")
         if msg.author == client.user:
             return
+        else:
+            await msg.add_reaction("🇳")
+            await msg.add_reaction("🇴")
+            await msg.add_reaction("🇧")
     if "pera" in msg.content.lower():
         await msg.add_reaction("🍐")
 
@@ -160,7 +161,7 @@ async def on_command_error(ctx, error):
 
 
 @client.command(aliasses=['Mes', 'mês', 'Mês'])
-async def mes(ctx):
+async def mes(ctx, msg):
     await ctx.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
                    "🇦 Amanda\n"
                    "🇧 Austinbacky\n"
@@ -177,21 +178,21 @@ async def mes(ctx):
                    "🇲 Vlump\n"
                    "🇳 Xlivrox\n"
                    "🇴 Yukari")
-    ctx.add_reaction("🇦")
-    ctx.add_reaction("🇧")
-    ctx.add_reaction("🇨")
-    ctx.add_reaction("🇩")
-    ctx.add_reaction("🇪")
-    ctx.add_reaction("🇫")
-    ctx.add_reaction("🇬")
-    ctx.add_reaction("🇭")
-    ctx.add_reaction("🇮")
-    ctx.add_reaction("🇯")
-    ctx.add_reaction("🇰")
-    ctx.add_reaction("🇱")
-    ctx.add_reaction("🇲")
-    ctx.add_reaction("🇳")
-    ctx.add_reaction("🇴")
+    msg.add_reaction("🇦")
+    msg.add_reaction("🇧")
+    msg.add_reaction("🇨")
+    msg.add_reaction("🇩")
+    msg.add_reaction("🇪")
+    msg.add_reaction("🇫")
+    msg.add_reaction("🇬")
+    msg.add_reaction("🇭")
+    msg.add_reaction("🇮")
+    msg.add_reaction("🇯")
+    msg.add_reaction("🇰")
+    msg.add_reaction("🇱")
+    msg.add_reaction("🇲")
+    msg.add_reaction("🇳")
+    msg.add_reaction("🇴")
 
 
 @client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
