@@ -22,7 +22,7 @@ async def on_ready():
 
 
 @client.event
-async def on_message(msg, message):
+async def on_message(msg):
     if "noob" in msg.content.lower():
         await msg.add_reaction("<:mds:703304861575544962>")
         await msg.add_reaction("<:pikoh:606574166497558538>")
@@ -34,7 +34,6 @@ async def on_message(msg, message):
     if "formulario" in msg.content.lower():
         await msg.add_reaction("<:desconfiadx:610229151840075786>")
     if "austin" in msg.content.lower():
-        message.channel.send("Austin? O maior noob que conheço.")
         if msg.author == client.user:
             return
         else:
@@ -47,6 +46,11 @@ async def on_message(msg, message):
         await msg.add_reaction("👀")
 
     await client.process_commands(msg)
+
+@client.event
+async def on_message(message):
+    if "austin" in message.content.lower():
+        message.channel.send("Austin? O maior noob que ja vi.")
 
 
 @client.event
