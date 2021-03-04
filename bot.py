@@ -198,6 +198,12 @@ async def mes(msg):
     await my_message.add_reaction("🇴")
 
 
+@client.command(pass_context=True)
+async def say(ctx, *, message):
+    await ctx.delete.message()
+    await ctx.send(f"{message}")
+
+
 @client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
 async def votação(ctx, question, *options: str):
     if len(options) <= 1:
