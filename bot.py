@@ -1,3 +1,4 @@
+import asyncio
 import discord
 from discord.ext import commands
 import os
@@ -202,6 +203,13 @@ async def mes(msg):
 async def say(ctx, *, message):
     await ctx.message.delete()
     await ctx.send(f"{message}")
+
+
+@client.command()
+async def nome(ctx):
+    message = await ctx.send("hello")
+    await asyncio.sleep(1)
+    await message.edit(content="teste novo ")
 
 
 @client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
