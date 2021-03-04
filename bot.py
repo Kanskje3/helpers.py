@@ -206,8 +206,8 @@ async def say(ctx, *, message):
 
 
 @client.command()
-async def nome(ctx):
-    message = await ctx.send("hello")
+async def nome(ctx, msg):
+    message = await ctx.send(f"{msg}")
     await asyncio.sleep(1)
     await message.edit(content="teste novo ")
 
