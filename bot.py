@@ -33,19 +33,13 @@ async def on_message(msg):
         await msg.add_reaction("<:desconfiadx:610229151840075786>")
     if "formulario" in msg.content.lower():
         await msg.add_reaction("<:desconfiadx:610229151840075786>")
-    if "austin" in msg.content.lower():
-        if msg.author == client.user:
-            return
-        else:
-            await msg.add_reaction("🇳")
-            await msg.add_reaction("🇴")
-            await msg.add_reaction("🇧")
     if "pera" in msg.content.lower():
         await msg.add_reaction("🍐")
     if "kaldt" in msg.content.lower():
         await msg.add_reaction("👀")
 
     await client.process_commands(msg)
+
 
 @client.event
 async def on_message(message):
