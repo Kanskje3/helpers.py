@@ -200,7 +200,7 @@ async def mes(msg):
 
 @client.command(pass_context=True)
 async def say(ctx, *, message):
-    await ctx.delete.message()
+    await ctx.delete.message(ctx)
     await ctx.send(f"{message}")
 
 
