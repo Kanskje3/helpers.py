@@ -50,17 +50,17 @@ async def on_message(msg):
 
 @client.event
 async def on_message(msg):
-    if "austin" in msg.content.lower():
-        if msg.author == client.user:
-            return
-        else:
-            await msg.channel.send("Austin? O maior noob que ja vi")
-
     if "kaldt" in msg.content.lower():
         if msg.author == client.user:
             return
         else:
             await msg.channel.send("O que estão falando sobre mim? 👀")
+
+    if "austin" in msg.content.lower():
+        if msg.author == client.user:
+            return
+        else:
+            await msg.channel.send("Austin? O maior noob que ja vi")
 
     await client.process_commands(msg)
 
