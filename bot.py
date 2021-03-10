@@ -58,6 +58,7 @@ async def on_message(msg):
 
     await client.process_commands(msg)
 
+
 @client.event
 async def on_message_delete(message):
     if message.author.bot:
@@ -70,9 +71,26 @@ async def on_message_delete(message):
 async def on_member_join(member):
     channel = client.get_channel(id=782802548212891658)  # verifique aqui
 
-    await channel.send(f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Por favor escreva seu nick no '
-                       f'jogo utilizando esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Não se esqueça de ler as regras em '
-                       f'<#515924836724506634> e divirta-se! Para mais comandos digite ?help no canal <#789349633121845249>')
+    await channel.send(
+        f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Primeiro de tudo, certifique-se que sua conta'
+        f' está verificada no servidor oficial do Transformice. Caso não esteja, digite ?verify para ver o passo a '
+        f'passo. Caso precise do link do servidor, digite ?tfm. Em seguida, leia o canal <#515924836724506634>. e por '
+        f'fim escreva seu nickname no jogo utilizando esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . '
+        f'! Para mais comandos digite ?help no canal <#789349633121845249>')
+
+
+@client.command(aliasssses =['Tfm'])
+async def tfm(ctx):
+    await ctx.send("discord.gg/transformice")
+
+
+@client.command(aliasses =['verificar', 'verificação', 'Verify', 'Verificar', 'Verificação'])
+async def verify(ctx):
+    await ctx.send('Para verificar a sua conta no servidor oficial do Transformice, acesse o link '
+                   'https://staff.atelier801.com/discord \n Em seguida, escolha a bandeira da sua comunidade e faça '
+                   'login na sua conta do discord, caso necessário. Em seguida, digite o seu nick do Transformice e '
+                   'substitua a tag #0000 caso necessário. Por fim, verifique a sua caixa de entrada do fórum e '
+                   'clique na URL que lhe foi enviado.')
 
 
 @client.command(aliases=['sobre'])
@@ -144,7 +162,9 @@ async def help(ctx):
                    f"🔸 **?Pelo** --> Link para ver o cóigo das cores dos pelos.\n"
                    f"🔸 **?Café** --> Requisitos para poder falar no café.\n"
                    f"🔸 **?Say** --> Faz o bot falar qualquer coisa.\n"
-                   f"🔸 **?Ping** --> Mostra o ping do bot.")
+                   f"🔸 **?Ping** --> Mostra o ping do bot."
+                   f"🔸 **?Tfm** --> Mostra o link para o servidor oficial do Transformice no discord."
+                   f"🔸 **?Verify** --> Mostra um pequeno tutorial de como verificar a conta no servidor oficial do Transformice.")
 
 
 @client.command()
@@ -179,21 +199,21 @@ async def on_command_error(ctx, error):
 @commands.has_role("Helpers")
 async def mes(msg):
     my_message = await msg.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
-                   "🇦 Amanda\n"
-                   "🇧 Austinbacky\n"
-                   "🇨 Backyardigans\n"
-                   "🇩 Henry\n"
-                   "🇪 Jean\n"
-                   "🇫 Kanskje\n"
-                   "🇬 Kigglybuff\n"
-                   "🇭 Mouz\n"
-                   "🇮 Provincias\n"
-                   "🇯 Santoex\n"
-                   "🇰 Sorreltail\n"
-                   "🇱 Tiradez\n"
-                   "🇲 Vlump\n"
-                   "🇳 Xlivrox\n"
-                   "🇴 Yukari")
+                                "🇦 Amanda\n"
+                                "🇧 Austinbacky\n"
+                                "🇨 Backyardigans\n"
+                                "🇩 Henry\n"
+                                "🇪 Jean\n"
+                                "🇫 Kanskje\n"
+                                "🇬 Kigglybuff\n"
+                                "🇭 Mouz\n"
+                                "🇮 Provincias\n"
+                                "🇯 Santoex\n"
+                                "🇰 Sorreltail\n"
+                                "🇱 Tiradez\n"
+                                "🇲 Vlump\n"
+                                "🇳 Xlivrox\n"
+                                "🇴 Yukari")
     await my_message.add_reaction("🇦")
     await my_message.add_reaction("🇧")
     await my_message.add_reaction("🇨")
@@ -217,23 +237,7 @@ async def say(ctx, *, message):
     await ctx.send(f"{message}")
 
 
-@client.command(aliases=['poll', 'votaçao', 'votacao', 'votacão', 'Poll'])
-async def votação(ctx, question, *options: str):
-    if len(options) <= 1:
-        await ctx.send('Você precisa de mais opções para fazer uma votação.')
-        return
-    if len(options) > 26:
-        await ctx.send('Você não poed fazer uma votação com mais de 26 itens.')
-        return
-
-    if len(options) == 2 and options[0] == 'yes' and options[1] == 'no':
-        ctx.add_reaction(['✅'])
-        ctx.add_reaction(['❌'])
-    else:
-        for i in options:
-            emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹',
-                     '🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
-            ctx.add_reaction(emojis)
+##emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹','🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
 
 
 client.run(os.environ['token'])
