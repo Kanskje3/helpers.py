@@ -56,7 +56,7 @@ async def on_message(msg):
         else:
             await msg.channel.send("Austin? O maior noob que ja vi")
 
-    if "Kaldt" in msg.content.lower():
+    if "kaldt" in msg.content.lower():
         if msg.author == client.user:
             return
         else:
