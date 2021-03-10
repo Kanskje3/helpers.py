@@ -71,23 +71,23 @@ async def on_message_delete(message):
 async def on_member_join(member):
     channel = client.get_channel(id=782802548212891658)  # verifique aqui
 
-    await channel.send(
-        f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Primeiro de tudo, certifique-se que sua conta'
-        f' está verificada no servidor oficial do Transformice. Caso não esteja, digite ?verify para ver o passo a '
-        f'passo. Caso precise do link do servidor, digite ?tfm. Em seguida, leia o canal <#515924836724506634>. e por '
-        f'fim escreva seu nickname no jogo utilizando esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . '
-        f'! Para mais comandos digite ?help no canal <#789349633121845249>')
+    await channel.send(f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Primeiro de tudo, certifique-se'
+                       f' que sua conta está verificada no servidor oficial do Transformice. Caso não esteja, digite '
+                       f'?verify para ver o passo a passo. Caso precise do link do servidor, digite ?tfm. Em seguida, '
+                       f'leia o canal <#515924836724506634>. e por fim escreva seu nickname no jogo utilizando esses'
+                       f' caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Para mais comandos digite ?help no canal '
+                       f'<#789349633121845249>')
 
 
-@client.command(aliasssses =['Tfm'])
+@client.command(aliasssses=['Tfm'])
 async def tfm(ctx):
     await ctx.send("discord.gg/transformice")
 
 
-@client.command(aliasses =['verificar', 'verificação', 'Verify', 'Verificar', 'Verificação'])
+@client.command(aliasses=['verificar', 'verificação', 'Verify', 'Verificar', 'Verificação'])
 async def verify(ctx):
     await ctx.send('Para verificar a sua conta no servidor oficial do Transformice, acesse o link '
-                   'https://staff.atelier801.com/discord \n Em seguida, escolha a bandeira da sua comunidade e faça '
+                   'https://staff.atelier801.com/discord \nEm seguida, escolha a bandeira da sua comunidade e faça '
                    'login na sua conta do discord, caso necessário. Em seguida, digite o seu nick do Transformice e '
                    'substitua a tag #0000 caso necessário. Por fim, verifique a sua caixa de entrada do fórum e '
                    'clique na URL que lhe foi enviado.')
@@ -162,9 +162,9 @@ async def help(ctx):
                    f"🔸 **?Pelo** --> Link para ver o cóigo das cores dos pelos.\n"
                    f"🔸 **?Café** --> Requisitos para poder falar no café.\n"
                    f"🔸 **?Say** --> Faz o bot falar qualquer coisa.\n"
-                   f"🔸 **?Ping** --> Mostra o ping do bot."
-                   f"🔸 **?Tfm** --> Mostra o link para o servidor oficial do Transformice no discord."
-                   f"🔸 **?Verify** --> Mostra um pequeno tutorial de como verificar a conta no servidor oficial do Transformice.")
+                   f"🔸 **?Ping** --> Mostra o ping do bot.\n"
+                   f"🔸 **?Tfm** --> Mostra o link para o servidor oficial do Transformice no discord.\n"
+                   f"🔸 **?Verify** --> Mostra um pequeno tutorial de como verificar a conta no servidor oficial do Transformice.\n")
 
 
 @client.command()
