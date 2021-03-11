@@ -12,7 +12,8 @@ client.remove_command("help")
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
+    await client.change_presence(
+        activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
     channel = client.get_channel(id=797141089998864465)
     await channel.send(f'O melhor bot do server chegou! <@283650918749044736>')
     print("Bot online!")
@@ -243,7 +244,7 @@ async def say(ctx, *, message):
 ##emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹','🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
 
 
-@client.command(aliasses=['r'])
+'''@client.command(aliasses=['r'])
 async def restart(ctx):
     if ctx.author.id != 283650918749044736:
         return
@@ -251,7 +252,6 @@ async def restart(ctx):
     await client.logout()
     await client.login(os.environ["token"], bot=True)
     channel = client.get_channel(id=797141089998864465)
-    await channel.send("Bot reiniciado!")
-
+    await channel.send("Bot reiniciado!")'''
 
 client.run(os.environ['token'], reconnect=True)
