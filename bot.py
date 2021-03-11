@@ -243,20 +243,20 @@ async def say(ctx, *, message):
 ##emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹','🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
 
 
-'''@client.command(aliasses=['r'])
+@client.command(aliasses=['r'])
 async def restart(ctx):
     if ctx.author.id != 283650918749044736:
         return
     await ctx.send("Bot reiniciando...")
     await client.logout()
-    await client.login("token", bot=True)
+    await client.login(os.environ["token"], bot=True)
     channel = client.get_channel(id=797141089998864465)
-    await channel.send("Bot reiniciado!")'''
+    await channel.send("Bot reiniciado!")
 
 
-@client.command()
+''''@client.command()
 async def restart(ctx):
     await ctx.sned("Bot reiniciando...")
-    await client.close()
+    await client.close()'''
 
-client.run(os.environ['token'], bot=True, reconnect=True)
+client.run(os.environ['token'], reconnect=True)
