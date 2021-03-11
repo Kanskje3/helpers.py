@@ -60,6 +60,9 @@ async def on_message(msg):
         else:
             await msg.channel.send("Austin? O maior noob que ja vi")
 
+    if "teste" in msg.content.lower():
+        await msg.add_reaction("<:desconfiadx:610229151840075786>")
+
     await client.process_commands(msg)
 
 
