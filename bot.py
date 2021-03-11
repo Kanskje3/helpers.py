@@ -60,8 +60,30 @@ async def on_message(msg):
         else:
             await msg.channel.send("Austin? O maior noob que ja vi")
 
-    if "teste" in msg.content.lower():
+    if "noob" in msg.content.lower():
+        await msg.add_reaction("<:mds:703304861575544962>")
+        await msg.add_reaction("<:pikoh:606574166497558538>")
+
+    if "nub" in msg.content.lower():
+        await msg.add_reaction("<:mds:703304861575544962>")
+        await msg.add_reaction("<:pikoh:606574166497558538>")
+
+    if "formulário" in msg.content.lower():
         await msg.add_reaction("<:desconfiadx:610229151840075786>")
+
+    if "formulario" in msg.content.lower():
+        await msg.add_reaction("<:desconfiadx:610229151840075786>")
+
+    if "austin" in msg.content.lower():
+        if msg.author == client.user:
+            return
+        else:
+            await msg.add_reaction("🇳")
+            await msg.add_reaction("🇴")
+            await msg.add_reaction("🇧")
+
+    if "pera" in msg.content.lower():
+        await msg.add_reaction("🍐")
 
     await client.process_commands(msg)
 
