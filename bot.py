@@ -42,8 +42,6 @@ async def on_message(msg):
             await msg.add_reaction("🇧")
     if "pera" in msg.content.lower():
         await msg.add_reaction("🍐")
-    if "kaldt" in msg.content.lower():
-        await msg.add_reaction("👀")
 
     await client.process_commands(msg)
 
@@ -253,6 +251,7 @@ async def restart(ctx):
     await ctx.send("Bot reiniciando...")
     await client.logout()
     await client.login("token", bot=True)
-    await ctx.send("Bot reiniciado!")
+    channel = client.get_channel(id=797141089998864465)
+    await channel.send("Bot reiniciado!")
 
 client.run(os.environ['token'])
