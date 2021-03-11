@@ -246,4 +246,13 @@ async def say(ctx, *, message):
 ##emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹','🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
 
 
+@client.event()
+async def restart(ctx):
+    if ctx.author.id != 283650918749044736:
+        return
+    await ctx.send("Bot reiniciando...")
+    await client.logout()
+    await client.login("token", bot=True)
+    await ctx.send("Bot reiniciado!")
+
 client.run(os.environ['token'])
