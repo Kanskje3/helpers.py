@@ -254,9 +254,4 @@ async def restart(ctx):
     await channel.send("Bot reiniciado!")
 
 
-''''@client.command()
-async def restart(ctx):
-    await ctx.sned("Bot reiniciando...")
-    await client.close()'''
-
 client.run(os.environ['token'], reconnect=True)
