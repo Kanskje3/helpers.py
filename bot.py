@@ -108,6 +108,18 @@ async def on_member_join(member):
                        f'<#789349633121845249>')
 
 
+@client.command()
+async def english(ctx):
+    await ctx.send(f"Welcome to the official Helpers BR server! First of all, please make sure that you have a verified"
+                   f" account in the official Transformice server. If you don't know how to verify your account, type "
+                   f"?verify to see a small tutorial. If you need the link of the Transformice server, type ?tfm. "
+                   f"After that, please type your tfm username here using the following characters for the tag "
+                   f"﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉. For now, we don't have the rules translated into english, but please "
+                   f"use common sense and behave and don't do anything that you could not do in the official "
+                   f"Transformice server. If you need help with anything else you can ping any helper in this chat "
+                   f"<#821167125329608714>.")
+
+
 @client.command(aliasssses=['Tfm'])
 async def tfm(ctx):
     await ctx.send("discord.gg/transformice")
