@@ -102,17 +102,18 @@ async def on_member_join(member):
 
     await channel.send(f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Primeiro de tudo, certifique-se'
                        f' que sua conta está verificada no servidor oficial do Transformice. Caso não esteja, digite '
-                       f'?verificar para ver o passo a passo. Caso precise do link do servidor, digite ?tfm. Em seguida,'
-                       f' leia o canal <#515924836724506634>. e por fim escreva seu nickname no jogo utilizando esses'
-                       f' caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Para mais comandos digite ?help no canal '
-                       f'<#789349633121845249>. \n\n In case you do not understand this message, please type ?english.')
+                       f'**?verificar** para ver o passo a passo. Caso precise do link do servidor, digite **?tfm**. Em '
+                       f'seguida, leia o canal <#515924836724506634>. e por fim escreva seu nickname no jogo utilizando'
+                       f' esses caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Para mais comandos digite **?help** no '
+                       f'canal <#789349633121845249>. \n\n In case you do not understand this message, please type '
+                       f'**?english**.')
 
 
 @client.command()
 async def english(ctx):
     await ctx.send(f"Welcome to the official Helpers BR server! First of all, please make sure that you have a verified"
                    f" account in the official Transformice server. If you don't know how to verify your account, type "
-                   f"?verify to see a small tutorial. If you need the link of the Transformice server, type ?tfm. "
+                   f"**?verify** to see a small tutorial. If you need the link of the Transformice server, type **?tfm**. "
                    f"After that, please type your tfm username here using the following characters for the tag "
                    f"﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉. For now, we don't have the rules translated into english, but please "
                    f"use common sense and behave and don't do anything that you could not do in the official "
@@ -201,19 +202,21 @@ async def Cafe(ctx):
 @client.group(invoke_without_command=True)
 async def help(ctx):
     await ctx.send(f"Os comandos deste bot são: \n\n"
-                   f"🔸 **?Sobre** --> Uma pequena introdução sobre o bot.\n"
-                   f"🔸 **?Recrutamento** --> Link para o recrutamento dos Helpers BR.\n"
-                   f"🔸 **?Staff** --> Links úteis sobre a staff em geral.\n"
-                   f"🔸 **?Moderação** --> Links úteis sobre a moderação.\n"
-                   f"🔸 **?Sentinela** --> Links úteis sobre os sentinelas.\n"
-                   f"🔸 **?Mapcrew** --> Links úteis sobre os mapcrews.\n"
-                   f"🔸 **?Evento** --> Links sobre o evento atual no jogo.\n"
-                   f"🔸 **?Pelo** --> Link para ver o cóigo das cores dos pelos.\n"
-                   f"🔸 **?Café** --> Requisitos para poder falar no café.\n"
-                   f"🔸 **?Say** --> Faz o bot falar qualquer coisa.\n"
-                   f"🔸 **?Ping** --> Mostra o ping do bot.\n"
-                   f"🔸 **?Tfm** --> Mostra o link para o servidor oficial do Transformice no discord.\n"
-                   f"🔸 **?Verify** --> Mostra um pequeno tutorial de como verificar a conta no servidor oficial do Transformice.\n")
+                   f"🔸 **?sobre** --> Uma pequena introdução sobre o bot.\n"
+                   f"🔸 **?recrutamento** --> Link para o recrutamento dos Helpers BR.\n"
+                   f"🔸 **?staff** --> Links úteis sobre a staff em geral.\n"
+                   f"🔸 **?moderação** --> Links úteis sobre a moderação.\n"
+                   f"🔸 **?sentinela** --> Links úteis sobre os sentinelas.\n"
+                   f"🔸 **?mapcrew** --> Links úteis sobre os mapcrews.\n"
+                   f"🔸 **?evento** --> Links sobre o evento atual no jogo.\n"
+                   f"🔸 **?pelo** --> Link para ver o cóigo das cores dos pelos.\n"
+                   f"🔸 **?café** --> Requisitos para poder falar no café.\n"
+                   f"🔸 **?say** --> Faz o bot falar qualquer coisa.\n"
+                   f"🔸 **?ping** --> Mostra o ping do bot.\n"
+                   f"🔸 **?tfm** --> Mostra o link para o servidor oficial do Transformice no discord.\n"
+                   f"🔸 **?verificar** --> Mostra um pequeno tutorial de como verificar a conta no servidor oficial do Transformice.\n"
+                   f"🔸 **?verify** --> Mostra o tutorial citado acima em inglês.\n"
+                   f"🔸 **?english** --> Mostra a mensagem de boas vindas em inglês.")
 
 
 @client.command()
