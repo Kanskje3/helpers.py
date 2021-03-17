@@ -102,8 +102,8 @@ async def on_member_join(member):
 
     await channel.send(f'Bem vindo ao servidor oficial dos Helpers BR {member.mention}! Primeiro de tudo, certifique-se'
                        f' que sua conta está verificada no servidor oficial do Transformice. Caso não esteja, digite '
-                       f'?verify para ver o passo a passo. Caso precise do link do servidor, digite ?tfm. Em seguida, '
-                       f'leia o canal <#515924836724506634>. e por fim escreva seu nickname no jogo utilizando esses'
+                       f'?verificar para ver o passo a passo. Caso precise do link do servidor, digite ?tfm. Em seguida,'
+                       f' leia o canal <#515924836724506634>. e por fim escreva seu nickname no jogo utilizando esses'
                        f' caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Para mais comandos digite ?help no canal '
                        f'<#789349633121845249>')
 
@@ -125,13 +125,21 @@ async def tfm(ctx):
     await ctx.send("discord.gg/transformice")
 
 
-@client.command(aliasses=['verificar', 'verificação', 'Verify', 'Verificar', 'Verificação'])
-async def verify(ctx):
+@client.command(aliasses=['Verificar'])
+async def verificar(ctx):
     await ctx.send('Para verificar a sua conta no servidor oficial do Transformice, acesse o link '
                    'https://staff.atelier801.com/discord \nEm seguida, escolha a bandeira da sua comunidade e faça '
                    'login na sua conta do discord, caso necessário. Em seguida, digite o seu nick do Transformice e '
                    'substitua a tag #0000 caso necessário. Por fim, verifique a sua caixa de entrada do fórum e '
                    'clique na URL que lhe foi enviado.')
+
+
+@client.command(aliasses=['Verify'])
+async def verify(ctx):
+    await ctx.send(f"To verify your account in the official Transformice server, access "
+                   f"https://staff.atelier801.com/discord \nOnce you're in the site, select the flag of your "
+                   f"community and log in to your discord account if necessary. Then type your tfm username and "
+                   f"replace the #0000 if necessary. Finally, check your forum inbox and click on the URL sent yo you.")
 
 
 @client.command(aliases=['sobre'])
