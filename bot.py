@@ -261,6 +261,7 @@ async def mes(msg):
 
 
 @client.command(pass_context=True)
+@commands.has_role("Helpers")
 async def say(ctx, *, message):
     await ctx.message.delete()
     await ctx.send(f"{message}")
