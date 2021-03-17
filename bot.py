@@ -105,7 +105,7 @@ async def on_member_join(member):
                        f'?verificar para ver o passo a passo. Caso precise do link do servidor, digite ?tfm. Em seguida,'
                        f' leia o canal <#515924836724506634>. e por fim escreva seu nickname no jogo utilizando esses'
                        f' caracteres para a tag ﹟ ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ . Para mais comandos digite ?help no canal '
-                       f'<#789349633121845249>')
+                       f'<#789349633121845249>. \n\n In case you do not understand this message, please type ?english.')
 
 
 @client.command()
