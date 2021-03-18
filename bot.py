@@ -209,7 +209,7 @@ async def help(ctx):
                    f"🔸 **?sentinela** --> Links úteis sobre os sentinelas.\n"
                    f"🔸 **?mapcrew** --> Links úteis sobre os mapcrews.\n"
                    f"🔸 **?evento** --> Links sobre o evento atual no jogo.\n"
-                   f"🔸 **?pelo** --> Link para ver o cóigo das cores dos pelos.\n"
+                   f"🔸 **?pelo** --> Link para ver o código das cores dos pelos.\n"
                    f"🔸 **?café** --> Requisitos para poder falar no café.\n"
                    f"🔸 **?say** --> Faz o bot falar qualquer coisa.\n"
                    f"🔸 **?ping** --> Mostra o ping do bot.\n"
