@@ -51,6 +51,23 @@ async def on_message(msg):
     await client.process_commands(msg)
 
 
+filtered_words = ['google.com', 'yahoo.com', 'cat']
+
+
+@client.event
+async def on_message(msg):
+    if msg.author == client.user:
+        return
+    for word in filtered_words:
+        if word in msg.content:
+            await msg.delete()
+            await msg.channel.send(f'I have deleted a message from {msg.author.mention}.')
+            channel = client.get_channel(id=578266471495499795)
+            await channel.send(f'The message was: {msg.content}')
+
+            break  # stops it constantly spamming / continues the loop
+
+
 @client.event
 async def on_message(msg):
     if "kaldt" in msg.content.lower():
@@ -91,23 +108,6 @@ async def on_message(msg):
         await msg.add_reaction("🍐")
 
     await client.process_commands(msg)
-
-
-filtered_words = ['google.com', 'yahoo.com', 'cat']
-
-
-@client.event
-async def on_message(msg):
-    if msg.author == client.user:
-        return
-    for word in filtered_words:
-        if word in msg.content:
-            await msg.delete()
-            await msg.channel.send(f'I have deleted a message from {msg.author.mention}.')
-            channel = client.get_channel(id=578266471495499795)
-            await channel.send(f'The message was: {msg.content}')
-
-            break  # stops it constantly spamming / continues the loop
 
 
 @client.event
