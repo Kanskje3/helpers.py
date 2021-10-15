@@ -25,7 +25,7 @@ async def on_ready():
 
 
 
-'''
+
 
 @client.event
 async def on_message(msg):
@@ -219,7 +219,7 @@ async def help(ctx):
                    f"🔸 **?verify** --> Mostra o tutorial citado acima em inglês.\n"
                    f"🔸 **?english** --> Mostra a mensagem de boas vindas em inglês.")
 
-'''
+
 @client.command()
 async def ping(ctx):
     await ctx.send(f'Latencia: {round(client.latency * 1000)}ms')
@@ -257,15 +257,5 @@ async def say(ctx, *, message):
 
 ##emojis = ['🇦', '🇧', '🇨', '🇩', '🇪', '🇫', '🇬', '🇭', '🇮', '🇯', '🇰', '🇱', '🇲', '🇳', '🇴', '🇵', '🇶', '🇷', '🇸', '🇹','🇺', '🇻', '🇼', '🇽', '🇾', '🇿']
 
-
-'''@client.command(aliasses=['r'])
-async def restart(ctx):
-    if ctx.author.id != 283650918749044736:
-        return
-    await ctx.send("Bot reiniciando...")
-    await client.logout()
-    await client.login(os.environ["token"], bot=True)
-    channel = client.get_channel(id=797141089998864465)
-    await channel.send("Bot reiniciado!")'''
 
 client.run(os.environ['token'], reconnect=True)
