@@ -13,9 +13,9 @@ client.remove_command("help")
 @client.event
 async def on_ready():
     await client.change_presence(
-        activity=discord.Activity(type=discord.ActivityType.watching, name='?help para saber mais'))
+        activity=discord.Activity(type=discord.ActivityType.watching, name='?help'))
     channel = client.get_channel(id=797141089998864465)
-    await channel.send(f'O melhor bot do server chegou! <@283650918749044736>')
+    await channel.send(f'Online again <@283650918749044736>')
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
@@ -229,6 +229,20 @@ async def ping(ctx):
 async def clear_messages(ctx, amount=2):
     await ctx.channel.purge(limit=amount)
     await ctx.send(f'{ctx.message.author.mention} apagou {amount} mensagens.')
+
+
+deleted = 0
+filtered_words = ['google.com', 'yahoo.com']
+
+
+@client.event
+async def on_message(msg, message):
+    if msg.author == client.user:
+        return
+    for word in filtered_words:
+        if word in msg.content:
+            await msg.delete()
+            break  # stops it constantly spamming / continues the loop
 
 
 @client.event
