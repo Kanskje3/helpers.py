@@ -15,6 +15,10 @@ async def on_ready():
         activity=discord.Activity(type=discord.ActivityType.watching, name='?help'))
     channel = client.get_channel(id=797141089998864465)
     await channel.send(f'Online again <@283650918749044736>')
+    await client.change_presence(
+        activity=discord.Activity(type=discord.ActivityType.watching, name='?help'))
+    channel = client.get_channel(id=501449315466739734)
+    await channel.send(f'Online again <@283650918749044736>')
     print("Bot online!")
     print(client.user.name)
     print(client.user.id)
