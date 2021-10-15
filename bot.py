@@ -23,7 +23,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
 
-filtered_words = ['google.com', 'yahoo.com']
+filtered_words = ['google.com', 'yahoo.com', 'cat']
 
 
 @client.event
