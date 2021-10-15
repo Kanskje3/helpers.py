@@ -24,20 +24,6 @@ async def on_ready():
     print(client.user.id)
 
 
-filtered_words = ['google.com', 'yahoo.com']
-
-
-@client.event
-async def on_message(msg):
-    if msg.author == client.user:
-        return
-    for word in filtered_words:
-        if word in msg.content:
-            await msg.delete()
-            await msg.channel.send('Eu delete uma mensagem.')
-
-            break  # stops it constantly spamming / continues the loop
-
 @client.event
 async def on_message(msg):
     if "noob" in msg.content.lower():
