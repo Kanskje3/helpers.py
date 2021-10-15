@@ -24,21 +24,7 @@ async def on_ready():
     print(client.user.id)
 
 
-scam_links = ['google.com', 'yahoo.com', 'cat']
 
-
-@client.event
-async def on_message(msg):
-    if msg.author == client.user:
-        return
-    for word in scam_links:
-        if word in msg.content:
-            await msg.delete()
-            await msg.channel.send(f'I have deleted a message from {msg.author.mention}.')
-            channel = client.get_channel(id=578266471495499795)
-            await channel.send(f'The message was: {msg.content}')
-
-            break  # stops it constantly spamming / continues the loop
 
 
 @client.event
@@ -83,7 +69,22 @@ async def on_message(msg):
     await client.process_commands(msg)
 
 
+scam_links = ['google.com', 'yahoo.com', 'cat']
 
+
+@client.event
+async def on_message(msg):
+    if msg.author == client.user:
+        return
+    for word in scam_links:
+        if word in msg.content:
+            await msg.delete()
+            await msg.channel.send(f'I have deleted a message from {msg.author.mention}.')
+            await msg.author.add_roles('Muted')
+            channel = client.get_channel(id=578266471495499795)
+            await channel.send(f'The message was: {msg.content}')
+
+            break  # stops it constantly spamming / continues the loop
 
 
 @client.event
