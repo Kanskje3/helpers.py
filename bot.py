@@ -234,9 +234,9 @@ async def on_message(msg):
     for word in filtered_words:
         if word in msg.content:
             await msg.delete()
-            await msg.channel.send('Eu delete uma mensagem.')
+            await msg.channel.send(f'Eu delete uma mensagem de {msg.author.mention}.')
             channel = client.get_channel(id=578266471495499795)
-            channel.send(f'{msg.author.mention} sent: {msg.content}')
+            channel.send(f'The message was: {msg.content}')
 
             break  # stops it constantly spamming / continues the loop
 
