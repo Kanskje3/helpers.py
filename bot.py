@@ -236,7 +236,7 @@ async def on_message(msg):
             await msg.delete()
             await msg.channel.send(f'Eu delete uma mensagem de {msg.author.mention}.')
             channel = client.get_channel(id=578266471495499795)
-            channel.send(f'The message was: {msg.content}')
+            await channel.send(f'The message was: {msg.content}')
 
             break  # stops it constantly spamming / continues the loop
 
