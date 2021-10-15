@@ -23,6 +23,22 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
 
+filtered_words = ['google.com', 'yahoo.com']
+
+
+@client.event
+async def on_message(msg):
+    if msg.author == client.user:
+        return
+    for word in filtered_words:
+        if word in msg.content:
+            await msg.delete()
+            await msg.channel.send('Eu delete uma mensagem.')
+            channel = client.get_channel(id=578266471495499795)
+            channel.send(f'{msg.author.mention} sent: {msg.content}')
+
+            break  # stops it constantly spamming / continues the loop
+
 
 @client.event
 async def on_message(msg):
@@ -234,9 +250,6 @@ async def clear_messages(ctx, amount=2):
     await ctx.send(f'{ctx.message.author.mention} apagou {amount} mensagens.')
 
 
-
-
-
 @client.event
 async def on_command_error(ctx, error):
     embed = discord.Embed(
@@ -251,42 +264,6 @@ async def on_command_error(ctx, error):
         embed.add_field(name=f':x: Terminal Error', value=f"```{error}```")
         await ctx.send(embed=embed)
         raise error
-
-
-@client.command(aliasses=['Mes', 'mês', 'Mês'])
-@commands.has_role("Helpers")
-async def mes(msg):
-    my_message = await msg.send("Em quem você quer votar para Helper do Mês desse mês?\n\n"
-                                "🇦 Amanda\n"
-                                "🇧 Austinbacky\n"
-                                "🇨 Backyardigans\n"
-                                "🇩 Henry\n"
-                                "🇪 Jean\n"
-                                "🇫 Kanskje\n"
-                                "🇬 Kigglybuff\n"
-                                "🇭 Mouz\n"
-                                "🇮 Provincias\n"
-                                "🇯 Santoex\n"
-                                "🇰 Sorreltail\n"
-                                "🇱 Tiradez\n"
-                                "🇲 Vlump\n"
-                                "🇳 Xlivrox\n"
-                                "🇴 Yukari")
-    await my_message.add_reaction("🇦")
-    await my_message.add_reaction("🇧")
-    await my_message.add_reaction("🇨")
-    await my_message.add_reaction("🇩")
-    await my_message.add_reaction("🇪")
-    await my_message.add_reaction("🇫")
-    await my_message.add_reaction("🇬")
-    await my_message.add_reaction("🇭")
-    await my_message.add_reaction("🇮")
-    await my_message.add_reaction("🇯")
-    await my_message.add_reaction("🇰")
-    await my_message.add_reaction("🇱")
-    await my_message.add_reaction("🇲")
-    await my_message.add_reaction("🇳")
-    await my_message.add_reaction("🇴")
 
 
 @client.command(pass_context=True)
