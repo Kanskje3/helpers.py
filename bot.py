@@ -78,8 +78,10 @@ async def on_message(msg):
         return
     for word in scam_links:
         if word in msg.content:
-            await msg.author.add_roles('Muted')
             await msg.delete()
+            member = msg.author
+            var = discord.utils.get(msg.guild.roles, name="Muted")
+            await member.add_roles(var)
             await msg.channel.send(f'I have deleted a message from {msg.author.mention}.')
             channel = client.get_channel(id=578266471495499795)
             await channel.send(f'The message was: {msg.content}')
