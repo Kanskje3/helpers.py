@@ -23,21 +23,7 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
 
-filtered_words = ['google.com', 'yahoo.com', 'cat']
 
-
-@client.event
-async def on_message(msg):
-    if msg.author == client.user:
-        return
-    for word in filtered_words:
-        if word in msg.content:
-            await msg.delete()
-            await msg.channel.send('Eu delete uma mensagem.')
-            channel = client.get_channel(id=578266471495499795)
-            channel.send(f'{msg.author.mention} sent: {msg.content}')
-
-            break  # stops it constantly spamming / continues the loop
 
 
 @client.event
@@ -236,6 +222,23 @@ async def help(ctx):
                    f"🔸 **?verificar** --> Mostra um pequeno tutorial de como verificar a conta no servidor oficial do Transformice.\n"
                    f"🔸 **?verify** --> Mostra o tutorial citado acima em inglês.\n"
                    f"🔸 **?english** --> Mostra a mensagem de boas vindas em inglês.")
+
+
+filtered_words = ['google.com', 'yahoo.com', 'cat']
+
+
+@client.event
+async def on_message(msg):
+    if msg.author == client.user:
+        return
+    for word in filtered_words:
+        if word in msg.content:
+            await msg.delete()
+            await msg.channel.send('Eu delete uma mensagem.')
+            channel = client.get_channel(id=578266471495499795)
+            channel.send(f'{msg.author.mention} sent: {msg.content}')
+
+            break  # stops it constantly spamming / continues the loop
 
 
 @client.command()
