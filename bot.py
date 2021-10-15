@@ -234,17 +234,19 @@ async def clear_messages(ctx, amount=2):
     await ctx.send(f'{ctx.message.author.mention} apagou {amount} mensagens.')
 
 
-#filtered_words = ['google.com', 'yahoo.com']
+filtered_words = ['google.com', 'yahoo.com']
 
 
-#@client.event
-#async def on_message(msg):
- #   if msg.author == client.user:
-  #      return
-   # for word in filtered_words:
-    #       await msg.delete()
-     #       await msg.channel.send("I have deleted your message.")
-      #      break  # stops it constantly spamming / continues the loop
+@client.event
+async def on_message(msg):
+    if msg.author == client.user:
+        return
+    for word in filtered_words:
+        if word in msg.content:
+            await msg.delete()
+
+            break  # stops it constantly spamming / continues the loop
+    await msg.channel.send("I have deleted your message.")
 
 
 @client.event
